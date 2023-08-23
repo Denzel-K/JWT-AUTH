@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    {{>headContents}}
+    <title>Home</title>
+</head>
+<body>
+  {{>header}}
+  
+  <main>
+       
+    <div class="container_hm">
+      <div class="box img_slider">
+        <div>
+          <img class="slide" alt="coll"/>
+        </div>
+      </div>
+      
+      <div class="welcome box">
+        <p>Welcome to<span class="bold"> NJUMU STORE</span>.</p>
+        <br/>
+        <p>Get your favorite sneakers at affordable prices</p>
+        <br/>
+        <p>You can also have your sneakers customized by our best artists; from simple, vague shades to vivid colours.</p>
+        
+          <a class="btn start" href="/sign_in">
+            Get Started
+          </a>
+        
+      </div>
+    </div>
+  </main>
+  
+  {{>footer}}
+  
+  <script>
+    let i = 0;
+    var images = [];
+    
+    images[0] = 'Images/nike_model1.jpg';
+    images[1] = 'Images/collection_1.png';
+    images[2] = 'Images/brown-sole.jpg';
+    images[3] = 'Images/collection_3.jpg';
+    
+    function changeImg() {
+      document.querySelector('.slide').src = images[i];
+      
+      if (i < images.length - 1){
+        i++;
+      }else {
+        i = 0;
+      }
+      
+      setTimeout("changeImg()", 4000);
+    }
+    
+    window.onload = changeImg;
+  </script>
+  
+</body>
+</html>
