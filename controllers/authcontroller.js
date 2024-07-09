@@ -35,7 +35,7 @@ const handleErrors = (err) => {
 
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-  return jwt.sign ({ id }, "Woza Wozza wozzaaa !!!", { expiresIn: maxAge })
+  return jwt.sign ({ id }, process.env.SECRET, { expiresIn: maxAge })
 }
 module.exports.homePage_get = (req, res) => {
   res.render ('index');
@@ -88,5 +88,5 @@ module.exports.success_get = (req, res) => {
 
 module.exports.logout_get = (req, res) => {
   res.cookie ("jwt", '', {maxAge: 1});
-  res.render ("/");
+  res.redirect ("/");
 }
