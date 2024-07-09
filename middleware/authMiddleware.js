@@ -6,7 +6,7 @@ const requireAuth = (req, res, next) => {
   const token = req.cookie.jwt;
   
   if (token) {
-    jwt.verify (token, "woza wozza wozzaaa !!!", (err, decodedToken) => {
+    jwt.verify (token, process.env.SECRET, (err, decodedToken) => {
       if (err) {
         console.log (err.message);
         res.redirect ('/sign_in');
@@ -27,7 +27,7 @@ const checkUser = (req, res, next) => {
   const token = req.cookie.jwt;
   
   if (token) {
-    jwt.verify (token, "woza wozza wozzaaa !!!", async (err, decodedToken) => {
+    jwt.verify (token, process.env.SECRET, async (err, decodedToken) => {
       if (err) {
         console.log (err.message);
         res.locals.user = null;
