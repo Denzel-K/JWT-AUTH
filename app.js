@@ -15,9 +15,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 
 //Database connection
-const dburi = "mongodb+srv://Jarhead:unlock17A@cluster0.sxwtdrx.mongodb.net/?retryWrites=true&w=majority";
-
-mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 .then((result) => console.log("Connected to database"))
 .catch((err) => console.log(err))
 
